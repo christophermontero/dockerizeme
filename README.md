@@ -1,5 +1,9 @@
+# DockerizeMe
+
 <p align="center"><img src="assets/dockerizeme.png" alt="logo"></p>
  
+**_DockerizeMe_** this bash script allows you to create docker containers with ease, specifying environment variables, volumes, and other parameters.
+
 # Table of content
 
 - [DockerizeMe](#dockerizeme)
@@ -13,23 +17,21 @@
 - [License](#license)
 - [Authors](#authors)
 
-# DockerizeMe
-
-**_DockerizeMe_** this bash script allows you to create docker containers with ease, specifying environment variables, volumes, and other parameters.
-  
 # Screenshots
 
 ![prebuilt](./assets/prebuilt.png)
 
 # Tech Stack
 
-**Bash version** 5.1.16(1)-release
+- **Bash**
 
-**Docker version** 24.0.7
+- **Git** 
+
+- **Docker**
 
 # Installation
 
-To install this project simply clone it from github
+To install this project, clone it from github with the following
 
 **shell**
 
@@ -40,7 +42,7 @@ cd dockerizeme
 
 # Usage
 
-For use this project just run the following command
+To use this project, run the following command:
 
 **shell**
 
@@ -50,27 +52,30 @@ For use this project just run the following command
 
 ## Port mappings
 
-When the program ask you for map ports just add them in this way
+When prompted for port mappings, use the following format:
 
 **shell**
 
 ```
-8080:8080,...,so on
+8080:8080,... (add more as needed)
 ```
 
 ## Environment variables
 
-When the program ask you for env variables just add them in this way 
+When prompted for environment variables, use the following format:
 
 **shell**
 
 ```
-ROOT_PASSWORD=mypassword,...,so on
+VAR_NAME=value,... (add more as needed)
 ```
 
 ## Volumes
 
-If you want attach some volume to container just type yes when the program ask you and it will be located in `$HOME/docker-vol/image-name`
+If you want to attach volume to the container, type 'yes' when prompted, and it will be located in `$HOME/docker-vol/image-name`
+
+## Prebuilt containers
+
 
 # Comments
 
