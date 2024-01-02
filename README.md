@@ -1,4 +1,5 @@
-
+<p align="center"><img src="assets/dockerizeme.png" alt="logo"></p>
+ 
 # Table of content
 
 - [DockerizeMe](#dockerizeme)
@@ -18,7 +19,7 @@
   
 # Screenshots
 
-![dockerizeme](./assets/dockerizeme.jpg)
+![prebuilt](./assets/prebuilt.png)
 
 # Tech Stack
 
@@ -49,7 +50,7 @@ For use this project just run the following command
 
 ## Port mappings
 
-If you want map ports just add them in this way
+When the program ask you for map ports just add them in this way
 
 **shell**
 
@@ -59,7 +60,7 @@ If you want map ports just add them in this way
 
 ## Environment variables
 
-For env variables just add them in this way 
+When the program ask you for env variables just add them in this way 
 
 **shell**
 
@@ -69,7 +70,7 @@ ROOT_PASSWORD=mypassword,...,so on
 
 ## Volumes
 
-If you want attach some volume to container it will be located in `$HOME/docker-vol/image-name`
+If you want attach some volume to container just type yes when the program ask you and it will be located in `$HOME/docker-vol/image-name`
 
 # Comments
 
@@ -77,7 +78,7 @@ If you have any feedback, please reach out at cgortizm21@gmail.com
 
 # License
 
-[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+This project is under [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)
 
 # Authors
 
