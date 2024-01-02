@@ -60,7 +60,6 @@ Execute the script by running:
 **shell**
 
 ```
-sudo chmod 744 dockerizeme.sh
 ./dockerizeme.sh
 ```
 
