@@ -1,6 +1,6 @@
-# DockerizeMe
-
 <p align="center"><img src="assets/dockerizeme.png" alt="logo"></p>
+
+# DockerizeMe
  
 **_DockerizeMe_** this bash script allows you to create docker containers with ease, specifying environment variables, volumes, and other parameters.
 
