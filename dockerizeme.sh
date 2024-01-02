@@ -101,17 +101,59 @@ createContainer() {
   read -n 1 -s -r -p "Press any KEY to continue..."
 }
 
+prebuilt () {
+  while :
+  do
+    clear
+    echo "-------------------------------------------------"
+    echo "          Pre-built containers menu              "
+    echo "-------------------------------------------------"
+    echo "-------------------------------------------------"
+    echo "1. Install PostgreSQL"
+    echo "2. Install PostgreSQL + PostGIS"
+    echo "3. Install Pgadmin4"
+    echo "4. Install MongoDB"
+    echo "5. Install MySQL"
+    echo "6. Exit"
+    echo "-------------------------------------------------"
+
+    read -n 1 -p "Enter a valid option:" opt
+
+    case $opt in
+      1)
+        postgresql
+        ;;
+      2)
+        postgresqlPlusPostgis
+        ;;
+      3)
+        pgadmin4
+        ;;
+      4)
+        mongoDB
+        ;;
+      5)
+        mysql
+        ;;
+      6)
+        echo -e "\nExit"
+        exit 0
+        ;;
+    esac
+  done
+}
+
 menu() {
   while :
   do
     clear
     echo "-------------------------------------------------"
-    echo "                  DockerizeMe                    "
+    echo "               DockerizeMe menu                  "
     echo "-------------------------------------------------"
-    echo "                   Main Menu                     "
     echo "-------------------------------------------------"
-    echo "1. Create docker container"
-    echo "2. Exit"
+    echo "1. Create custom docker container"
+    echo "2. Create pre-built docker container"
+    echo "3. Exit"
     echo "-------------------------------------------------"
 
     read -n 1 -p "Enter a valid option:" opt
@@ -121,6 +163,9 @@ menu() {
         createContainer
         ;;
       2)
+        prebuilt
+        ;;
+      3)
         echo -e "\nExit"
         exit 0
         ;;
