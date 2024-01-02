@@ -10,9 +10,12 @@
 - [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
+- [Usage](#usage)
   - [Port mappings](#port-mappings)
   - [Environment variables](#environment-variables)
   - [Volumes](#volumes)
+  - [Prebuilt containers](#prebuilt-containers)
+    - [Supported services](#supported-services)
 - [Comments](#comments)
 - [License](#license)
 - [Authors](#authors)
@@ -76,6 +79,19 @@ If you want to attach volume to the container, type 'yes' when prompted, and it 
 
 ## Prebuilt containers
 
+DockerizeMe provides a range of pre-built containers designed to streamline the setup of commonly used database and application services. These pre-configured containers make it effortless to get your desired services up and running quickly.
+
+### Supported Services
+
+Here is a list of services supported by this script:
+
+- **PostgreSQL**
+  - PostgreSQL with PostGIS extension
+- **MongoDB**
+- **MySQL**
+- **PgAdmin4**
+
+Choose from these services to simplify your containerization process and accelerate your development workflow.
 
 # Comments
 
