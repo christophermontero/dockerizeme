@@ -5,6 +5,38 @@
 
 option=0
 
+# Source prebuilt_databases scripts
+source databases/postgres_prebuilt.sh
+source databases/postgis_prebuilt.sh
+source databases/pgadmin4_prebuilt.sh
+source databases/mongo_prebuilt.sh
+source databases/mysql_prebuilt.sh
+
+# Function to run postgresql with postgis extension container
+postgresqlPlusPostgis() {
+  postgresqlPlusPostgisContainerised
+}
+
+# Function to run a PostgreSQL container
+postgresql() {
+  postgresqlContainerised
+}
+
+# Function to run pgadmin4 container
+pgadmin4() {
+  pgadmin4Containerised
+}
+
+# Function to run mongoDB container
+mongoDB() {
+  mongoDBContainerised
+}
+
+# Function to run mysql container
+mysql() {
+  mysqlContainerised
+}
+
 createContainer() {
   echo -e
   read -s -p "Enter your sudo password:" password

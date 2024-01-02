@@ -34,9 +34,6 @@ To install this project simply clone it from github
 
 ```
 git clone https://github.com/christophermontero/dockerizeme.git
-```
-
-```
 cd dockerizeme
 ```
 
@@ -52,27 +49,27 @@ For use this project just run the following command
 
 ## Port mappings
 
-If you want map ports just add them like this
+If you want map ports just add them in this way
 
 **shell**
 
 ```
-host_port:container_port,8080:8080,...,so on
+8080:8080,...,so on
 ```
 
 ## Environment variables
 
-For env variables just add like this
+For env variables just add them in this way 
 
 **shell**
 
 ```
-env_var=value,ROOT_PASSWORD=mypassword,...,so on
+ROOT_PASSWORD=mypassword,...,so on
 ```
 
 ## Volumes
 
-If you want attach some volume to container the volume will be located in `$HOME/docker-vol/image-name`
+If you want attach some volume to container it will be located in `$HOME/docker-vol/image-name`
 
 # Comments
 
