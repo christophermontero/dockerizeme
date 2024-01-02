@@ -1,16 +1,18 @@
-# DockerizeMe
 
 # Table of content
 
-- [Description](#description)
+- [DockerizeMe](#dockerizeme)
 - [Screenshots](#screenshots)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
+  - [Port mappings](#port-mappings)
+  - [Environment variables](#environment-variables)
+  - [Volumes](#volumes)
 - [Comments](#comments)
 - [License](#license)
 - [Authors](#authors)
 
-# Description
+# DockerizeMe
 
 **_DockerizeMe_** this bash script allows you to create docker containers with ease, specifying environment variables, volumes, and other parameters.
   
@@ -48,13 +50,37 @@ For use this project just run the following command
 ./dockerizeme.sh
 ```
 
+## Port mappings
+
+If you want map ports just add them like this
+
+**shell**
+
+```
+host_port:container_port,8080:8080,...,so on
+```
+
+## Environment variables
+
+For env variables just add like this
+
+**shell**
+
+```
+env_var=value,ROOT_PASSWORD=mypassword,...,so on
+```
+
+## Volumes
+
+If you want attach some volume to container the volume will be located in `$HOME/docker-vol/image-name`
+
 # Comments
 
 If you have any feedback, please reach out at cgortizm21@gmail.com
 
 # License
 
-[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0https://www.apache.org/licenses/LICENSE-2.0)
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 # Authors
 
