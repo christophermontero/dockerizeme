@@ -45,11 +45,22 @@ cd dockerizeme
 
 # Usage
 
-To use this project, run the following command:
+Follow these steps to use this project:
+
+Ensure the script has execute permission by running the following command in your terminal:
 
 **shell**
 
 ```
+sudo chmod 744 dockerizeme.sh
+```
+
+Execute the script by running:
+
+**shell**
+
+```
+sudo chmod 744 dockerizeme.sh
 ./dockerizeme.sh
 ```
 
