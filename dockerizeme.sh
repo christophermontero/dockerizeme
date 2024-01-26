@@ -57,10 +57,6 @@ createContainer() {
     echo "${password}" | sudo -S docker pull "${img_name}":"${version}"
   fi
 
-  echo -e
-  read -p "Container name:" name
-  echo -e
-
   docker_command="sudo -S docker run --name ${name}"
 
   # Add port mappings
