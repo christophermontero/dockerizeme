@@ -46,7 +46,7 @@ createContainer() {
   echo -e "\nVerifing that image exists..."
 
   cleaned_version=$(echo "${version}" | tr -d '.')
-  name="${img_name}-${version}"
+  name="${img_name}-${cleaned_version}"
   verif_img=$(echo "${password}" | sudo -S docker images -q "${img_name}":"${version}")
 
   if [ -n "${verif_img}" ]; then
@@ -61,7 +61,7 @@ createContainer() {
 
   # Add port mappings
   read -p "Do you want to add ports? (yes/no): " add_ports
-  if [ "${add_ports}" = "yes" ]; then
+  if [ "${add_ports}" == "yes" ]; then
     read -p "Enter ports mappings (host_port:container_port,...,so on): " ports
     # Convert ports to an array
     IFS=',' read -ra ports_arr <<< "${ports}"
@@ -72,7 +72,7 @@ createContainer() {
 
   # Add env variables
   read -p "Do you want to add env variables? (yes/no): " add_env_vars
-  if [ "${add_ports}" = "yes" ]; then
+  if [ "${add_ports}" == "yes" ]; then
     read -p "Enter environment variables (env_var=value,...,so on): " env_vars
     # Convert variables to an array
     IFS=',' read -ra env_vars_arr <<< "${env_vars}"
@@ -83,7 +83,7 @@ createContainer() {
 
   # Add volume path
   read -p "Do you want to attach a volume? (yes/no): " add_volume
-  if [ "${add_volume}" = "yes" ]; then
+  if [ "${add_volume}" == "yes" ]; then
     docker_command+=" -v ${HOME}/docker-vol/${name}"
   fi
 
