@@ -72,7 +72,7 @@ createContainer() {
 
   # Add env variables
   read -p "Do you want to add env variables? (yes/no): " add_env_vars
-  if [ "${add_ports}" == "yes" ]; then
+  if [ "${add_env_vars}" == "yes" ]; then
     read -p "Enter environment variables (env_var=value,...,so on): " env_vars
     # Convert variables to an array
     IFS=',' read -ra env_vars_arr <<< "${env_vars}"
