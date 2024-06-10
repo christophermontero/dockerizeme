@@ -39,27 +39,25 @@ mysql() {
 
 createContainer() {
   echo -e
-  if ! sudo -n true 2>/dev/null; then
-    read -s -p "Enter your sudo password:" password
-    echo -e
-  fi
+  read -s -p "Enter your sudo password:" password
+  echo -e
   read -p "Include docker image:" img_name
   read -p "Include docker image version:" version
   echo -e "\nVerifing that image exists..."
 
   cleaned_version=$(echo "${version}" | tr -d '.')
   name="${img_name}-${cleaned_version}"
-  verif_img=$(echo "${password}" | sudo -S docker images -q "${img_name}":"${version}")
+  verif_img=$(sudo -S <<< "${password}" docker images -q "${img_name}":"${version}")
 
   if [ -n "${verif_img}" ]; then
     echo "This image is alredy pulled"
   else
     echo "Pulling image..."
     echo -e
-    echo "${password}" | sudo -S docker pull "${img_name}":"${version}"
+    sudo -S <<< "${password}" docker pull "${img_name}":"${version}"
   fi
 
-  docker_command="sudo -S docker run --name ${name}"
+  docker_command="docker run --name ${name}"
 
   # Add port mappings
   read -p "Do you want to add ports? (yes/no): " add_ports
@@ -92,10 +90,10 @@ createContainer() {
 
   docker_command+=" -d ${img_name}:${version}"
 
-  echo "${password}" | eval "$docker_command"
+  sudo -S <<< "{password}" eval "$docker_command"
 
   echo -e
-  echo "${password}" | sudo -S docker ps -a
+  sudo -S <<< "{password}" docker ps -a
   echo -e
   read -n 1 -s -r -p "Press any KEY to continue..."
 }
