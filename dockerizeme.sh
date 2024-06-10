@@ -39,8 +39,10 @@ mysql() {
 
 createContainer() {
   echo -e
-  read -s -p "Enter your sudo password:" password
-  echo -e
+  if ! sudo -n true 2>/dev/null; then
+    read -s -p "Enter your sudo password:" password
+    echo -e
+  fi
   read -p "Include docker image:" img_name
   read -p "Include docker image version:" version
   echo -e "\nVerifing that image exists..."

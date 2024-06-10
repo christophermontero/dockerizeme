@@ -5,7 +5,10 @@
 
 pgadmin4Containerised() {
   echo -e
-  read -s -p "Enter your sudo password:" password
+  if ! sudo -n true 2>/dev/null; then
+    read -s -p "Enter your sudo password:" password
+    echo -e
+  fi
   echo -e "\nVerifing that pgadmin4 image exists..."
 
   name="pgadmin"

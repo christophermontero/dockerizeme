@@ -5,8 +5,10 @@
 
 mysqlContainerised() {
   echo -e
-  read -s -p "Enter your sudo password:" password
-  echo -e
+  if ! sudo -n true 2>/dev/null; then
+    read -s -p "Enter your sudo password:" password
+    echo -e
+  fi
   read -p "Include the version of docker image:" version
   echo -e "\nVerifing that mysql image exists..."
 
