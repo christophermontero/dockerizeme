@@ -90,7 +90,7 @@ createContainer() {
 
   docker_command+=" -d ${img_name}:${version}"
 
-  sudo -S <<< "{password}" eval "$docker_command"
+  sudo -S <<< "{password}" bash -c "$docker_command"
 
   echo -e
   sudo -S <<< "{password}" docker ps -a
