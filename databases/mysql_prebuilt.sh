@@ -29,6 +29,8 @@ mysqlContainerised() {
   echo -e
 
   sudo -S <<< "${password}" docker run --name "${name}" \
+    -p 3306:3306 \
+    -p 33060:33060 \
     -e MYSQL_ROOT_PASSWORD="${mysql_passw}" \
     -v "${vol}":/var/lib/mysql \
     -d mysql:"${version}"
