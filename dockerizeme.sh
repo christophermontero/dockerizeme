@@ -84,6 +84,10 @@ createContainer() {
   # Add volume path
   read -p "Do you want to attach a volume? (yes/no): " add_volume
   if [ "${add_volume}" == "yes" ]; then
+    vol="${HOME}/docker-vol/${name}"
+    if [ -d "${vol}" ]; then
+      sudo -S <<< "{password}" rm -rf ${vol}
+    fi
     mkdir -p "${HOME}/docker-vol/${name}"
     docker_command+=" -v ${HOME}/docker-vol/${name}"
   fi

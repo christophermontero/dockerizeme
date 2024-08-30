@@ -12,8 +12,12 @@ postgresqlPlusPostgisContainerised() {
 
   cleaned_version=$(echo "${version}" | tr -d '.')
   name="postgres-postgis-${cleaned_version}"
-  vol="${HOME}/docker-vol/${name}/data"
+  vol="${HOME}/docker-vol/${name}"
   verif_img=$(sudo -S <<< "${password}" docker images -q postgis/postgis:"${version}")
+
+  if [ -d "${vol}" ]; then
+    sudo -S <<< "{password}" rm -rf ${vol}
+  fi
 
   if [ -n "${verif_img}" ]; then
     echo "This image version of postgres plus postgis is alredy pulled"
@@ -31,7 +35,7 @@ postgresqlPlusPostgisContainerised() {
     -p 5433:5432 \
     -e POSTGRES_PASSWORD="${postgres_passw}" \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
-    -v $vol:/var/lib/postgresql/data \
+    -v "${vol}/data":/var/lib/postgresql/data \
     -d postgis/postgis:"${version}"
 
   echo -e

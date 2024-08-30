@@ -16,6 +16,10 @@ mysqlContainerised() {
   verif_img=$(sudo -S <<< "${password}" docker images -q mysql:"${version}")
   echo -e
 
+  if [ -d "${vol}" ]; then
+    sudo -S <<< "{password}" rm -rf ${vol}
+  fi
+
   if [ -n "${verif_img}" ]; then
     echo "This images version of mysql is alredy pulled"
   else

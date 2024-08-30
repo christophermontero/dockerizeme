@@ -12,8 +12,12 @@ postgresqlContainerised() {
 
   cleaned_version=$(echo "${version}" | tr -d '.')
   name="postgres-${cleaned_version}"
-  vol="${HOME}/docker-vol/${name}/data"
+  vol="${HOME}/docker-vol/${name}"
   verif_img=$(sudo -S <<< "${password}" docker images -q postgres:"${version}")
+
+  if [ -d "${vol}" ]; then
+    sudo -S <<< "{password}" rm -rf ${vol}
+  fi
 
   if [ -n "${verif_img}" ]; then
     echo "This image version of postgres is already pulled"
@@ -31,7 +35,7 @@ postgresqlContainerised() {
     -p 5432:5432 \
     -e POSTGRES_PASSWORD="${postgres_passw}" \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
-    -v ${vol}:/var/lib/postgresql/data \
+    -v "${vol}/data":/var/lib/postgresql/data \
     -d postgres:"${version}"
 
   echo -e
